@@ -7,7 +7,6 @@ Gem::Specification.new do |s|
 	s.homepage    = 'http://www.dablweb.com'
 	s.authors     = [ 'Brett Richardson' ]
 	s.email       = [ 'Brett.Richardson.NZ@gmail.com' ]
-	s.files       = [ 'lib/situations.rb' ].join '\n'
 
 	s.add_dependency 'rspec'
 
