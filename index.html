@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Rspec-situations by brett-richardson</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/brett-richardson/rspec-situations">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Rspec-situations</h1>
+            <h2>Adds a super simple method to describe RSpec situations in terms of smaller situation blocks.</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/brett-richardson/rspec-situations/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/brett-richardson/rspec-situations/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a name="using-rspec-situations" class="anchor" href="#using-rspec-situations"><span class="octicon octicon-link"></span></a>Using Rspec Situations</h1>
+
+<p>Using Rspec Situations is super simple.</p>
+
+<p>Define a situation with the 'situation' method.
+Add a symbol key to identify the situation, and add an optional description if you like, and pass in a block creating the situation.</p>
+
+<p>Describe a set of 1 or more situations with the 'describe_situation' method, and treat it just like a normal describe call.</p>
+
+<div class="highlight"><pre><span class="n">describe</span> <span class="no">Apple</span> <span class="k">do</span>
+    <span class="n">subject</span><span class="p">(</span> <span class="ss">:apple</span> <span class="p">){</span> <span class="n">create</span> <span class="ss">:apple</span> <span class="p">}</span>
+
+    <span class="n">situation</span><span class="p">(</span> <span class="ss">:bought</span> <span class="p">){</span> <span class="n">subject</span><span class="o">.</span><span class="n">bought_by</span> <span class="o">=</span> <span class="n">create</span> <span class="ss">:user</span> <span class="p">}</span>
+    <span class="n">situation</span><span class="p">(</span> <span class="ss">:red</span>    <span class="p">){</span> <span class="n">subject</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="ss">:Red</span> <span class="p">}</span>
+
+    <span class="n">situation</span><span class="p">(</span> <span class="p">:</span><span class="mi">1</span><span class="n">yr_old</span><span class="p">,</span> <span class="s1">'a year old'</span> <span class="p">){</span> <span class="n">subject</span><span class="o">.</span><span class="n">created_at</span> <span class="o">=</span> <span class="mi">2</span><span class="o">.</span><span class="n">years</span><span class="o">.</span><span class="n">ago</span> <span class="p">}</span>
+
+    <span class="n">describe_situation</span> <span class="ss">:stolen</span><span class="p">,</span> <span class="ss">:red</span> <span class="k">do</span>
+        <span class="n">it</span><span class="p">{</span> <span class="n">should</span> <span class="n">be_tasty</span> <span class="p">}</span>
+    <span class="k">end</span>
+
+    <span class="n">describe_situation</span> <span class="ss">:stolen</span><span class="p">,</span> <span class="p">:</span><span class="mi">1</span><span class="n">yr_old</span> <span class="k">do</span>
+        <span class="n">it</span><span class="p">{</span> <span class="n">should_not</span> <span class="n">be_tasty</span> <span class="p">}</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/brett-richardson">brett-richardson</a> can be found on <a href="https://github.com/brett-richardson/rspec-situations">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-11951590-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
