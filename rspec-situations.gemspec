@@ -1,13 +1,12 @@
 Gem::Specification.new do |s|
 	s.name        = 'rspec-situations'
 	s.summary     = 'Situations for chained Rspec conditions'
-	s.description = ''
+	s.description = 'Adds a super simple method to describe RSpec situations in terms of smaller situation blocks.'
 	s.version     = '0.0.1'
 	s.date        = '2013-07-04'
 	s.homepage    = 'http://www.dablweb.com'
 	s.authors     = [ 'Brett Richardson' ]
 	s.email       = [ 'Brett.Richardson.NZ@gmail.com' ]
-	s.files       = [ 'lib/situations.rb' ].join '\n'
 
 	s.add_dependency 'rspec'
 
