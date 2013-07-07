@@ -4,6 +4,7 @@ env:
   - CI=true
 rvm:
   - "jruby"
+  - "1.9.2"
   - "1.9.3"
   - "2.0.0"
 script: bundle exec rspec spec

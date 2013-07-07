@@ -10,7 +10,7 @@ module RSpec::Situations::InstanceExtensions
 	def _rsits( *keys ) # Go up the example parents and get the situations requested, whereever they may be defined
 		_rsits_combined_hash.select do |key, _|
 			keys.include? key # Then filter out only the keys we are using
-		end.map{ |_, situation| situation } # Now return an array of situations instead of a hash
+		end.values # Now return an array of situations instead of a hash
 	end
 
 

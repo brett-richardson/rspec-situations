@@ -9,7 +9,7 @@ Using Rspec Situations is super simple.
 In your Gemfile:
 ```ruby
 group :development, :testing do
-    gem 'rspec-situations'
+  gem 'rspec-situations'
 end
 ```
 
@@ -29,23 +29,25 @@ Describe a set of 1 or more situations with the 'describe_situation' method, and
 
 ```ruby
 describe Apple do
-    subject( :apple ){ create :apple }
+  subject( :apple ){ create :apple }
 
-    situation( :bought ){ subject.bought_by = create :user }
-    situation( :red    ){ subject.color = :red }
+  situation( :bought ){ subject.bought_by = create :user }
+  situation( :red    ){ subject.color = :red }
 
-    situation( :one_yr_old, 'a year old' ){ subject.created_at = 1.years.ago } # With optional description
+  situation( :one_yr_old, 'a year old' ) do # With optional description
+    subject.created_at = 1.years.ago
+  end
 
-    describe_situation :bought, :red do
-        it{ should be_tasty }
-    end
+  describe_situation :bought, :red do
+    it{ should be_tasty }
+  end
 
-    describe_situation :bought, :one_yr_old, 'bought a year ago' do # With optional description
-        it{ should_not be_tasty }
-    end
+  desribe_situation :bought, :one_yr_old, 'bought a year ago' do # With optional description
+    it{ should_not be_tasty }
+  end
 
-    describe_situation :bought, :one_yr_old do
-      it{ should_not be_tasty }
-    end
+  describe_situation :bought, :one_yr_old do
+    it{ should_not be_tasty }
+  end
 end
 ```

@@ -1,6 +1,6 @@
 module RSpec
-	module Situations
-	end
+  module Situations
+  end
 end
 
 require 'rspec/situations/version'

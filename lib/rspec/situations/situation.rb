@@ -1,6 +1,6 @@
 module RSpec::Situations
 
-	class Situation
+	class Situation # Simple value-object to respresent a situation
 		attr_reader :description, :block
 
 		def initialize( key, description = nil, &block )
