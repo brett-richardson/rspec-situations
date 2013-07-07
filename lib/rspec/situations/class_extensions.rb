@@ -42,7 +42,15 @@ module RSpec::Situations
 
 		# Combine each situation's description into a string
 		def _rsits_describe_name( *keys )
-			'when ' + _rsits( *keys ).map{ |k,v| v.description }.join( ' and ' )
+			hash = _rsits *keys
+
+			'when ' + keys.map do |key|
+				if hash[key]
+					hash[key].description
+				else # Fall back to simple key.to_s if the situation isn't found
+					key
+				end
+			end.join( ' and ' )
 		end
 
 
@@ -53,6 +61,7 @@ module RSpec::Situations
 
 		def _rsits_combined_hash
 			_rsits_hash # TODO: Combine with parents, not needed until you want parent and local situations to interact directly with each other.
+			# FIXME: How do we access previous contexts from here?
 		end
 
 

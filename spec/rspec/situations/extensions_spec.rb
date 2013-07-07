@@ -31,6 +31,16 @@ describe RSpec::Situations::ClassExtensions do
 			it{ should match 'with description' }
 			it{ should match 'RSpec::Situations::ClassExtensions description' }
 		end
+
+		describe 'using situations from previous contexts' do
+			situation( :local ){ @local = 'local' }
+
+			describe_situation :foo_is_test, :local do
+				subject{ example.metadata[:full_description] }
+
+				it{ should match 'foo_is_test and local' }
+			end
+		end
 	end
 
 
