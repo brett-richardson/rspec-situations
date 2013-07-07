@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/brett-richardson/rspec-situations.png?branch=master)](https://travis-ci.org/brett-richardson/rspec-situations)
+
 Using Rspec Situations
 ======================
 
