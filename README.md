@@ -18,16 +18,20 @@ describe Apple do
     subject( :apple ){ create :apple }
 
     situation( :bought ){ subject.bought_by = create :user }
-    situation( :red    ){ subject.color = :Red }
+    situation( :red    ){ subject.color = :red }
 
-    situation( :1yr_old, 'a year old' ){ subject.created_at = 2.years.ago }
+    situation( :one_yr_old, 'a year old' ){ subject.created_at = 1.years.ago } # With optional description
 
-    describe_situation :stolen, :red do
+    describe_situation :bought, :red do
         it{ should be_tasty }
     end
 
-    describe_situation :stolen, :1yr_old do
+    describe_situation :bought, :one_yr_old, 'bought a year ago' do # With optional description
         it{ should_not be_tasty }
+    end
+
+    describe_situation :bought, :one_yr_old do
+      it{ should_not be_tasty }
     end
 end
 ```
