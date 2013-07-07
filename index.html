@@ -1,55 +1,54 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640" />
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Rspec-situations : Adds a super simple method to describe RSpec situations in terms of smaller situation blocks." />
 
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <title>Rspec-situations by brett-richardson</title>
+    <title>Rspec-situations</title>
   </head>
 
   <body>
-    <a id="forkme_banner" href="https://github.com/brett-richardson/rspec-situations">View on GitHub</a>
-    <div class="shell">
 
-      <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>Rspec-situations</h1>
-            <h2>Adds a super simple method to describe RSpec situations in terms of smaller situation blocks.</h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-      </header>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/brett-richardson/rspec-situations">View on GitHub</a>
 
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/brett-richardson/rspec-situations/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/brett-richardson/rspec-situations/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
+          <h1 id="project_title">Rspec-situations</h1>
+          <h2 id="project_tagline">Adds a super simple method to describe RSpec situations in terms of smaller situation blocks.</h2>
 
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/brett-richardson/rspec-situations/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/brett-richardson/rspec-situations/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-      <span class="banner-fix"></span>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p><a href="https://travis-ci.org/brett-richardson/rspec-situations"><img src="https://travis-ci.org/brett-richardson/rspec-situations.png?branch=master" alt="Build Status"></a></p>
 
-
-      <section id="main_content">
-        <h1>
+<h1>
 <a name="using-rspec-situations" class="anchor" href="#using-rspec-situations"><span class="octicon octicon-link"></span></a>Using Rspec Situations</h1>
 
 <p>Using Rspec Situations is super simple.</p>
+
+<p>In your Gemfile:</p>
+
+<div class="highlight"><pre><span class="n">group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:testing</span> <span class="k">do</span>
+    <span class="n">gem</span> <span class="s1">'rspec-situations'</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>In your spec_helper.rb:</p>
+
+<div class="highlight"><pre><span class="nb">require</span> <span class="s1">'rspec/situations'</span>
+</pre></div>
 
 <p>Define a situation with the 'situation' method.
 Add a symbol key to identify the situation, and add an optional description if you like, and pass in a block creating the situation.</p>
@@ -60,33 +59,32 @@ Add a symbol key to identify the situation, and add an optional description if y
     <span class="n">subject</span><span class="p">(</span> <span class="ss">:apple</span> <span class="p">){</span> <span class="n">create</span> <span class="ss">:apple</span> <span class="p">}</span>
 
     <span class="n">situation</span><span class="p">(</span> <span class="ss">:bought</span> <span class="p">){</span> <span class="n">subject</span><span class="o">.</span><span class="n">bought_by</span> <span class="o">=</span> <span class="n">create</span> <span class="ss">:user</span> <span class="p">}</span>
-    <span class="n">situation</span><span class="p">(</span> <span class="ss">:red</span>    <span class="p">){</span> <span class="n">subject</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="ss">:Red</span> <span class="p">}</span>
+    <span class="n">situation</span><span class="p">(</span> <span class="ss">:red</span>    <span class="p">){</span> <span class="n">subject</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="ss">:red</span> <span class="p">}</span>
 
-    <span class="n">situation</span><span class="p">(</span> <span class="p">:</span><span class="mi">1</span><span class="n">yr_old</span><span class="p">,</span> <span class="s1">'a year old'</span> <span class="p">){</span> <span class="n">subject</span><span class="o">.</span><span class="n">created_at</span> <span class="o">=</span> <span class="mi">2</span><span class="o">.</span><span class="n">years</span><span class="o">.</span><span class="n">ago</span> <span class="p">}</span>
+    <span class="n">situation</span><span class="p">(</span> <span class="ss">:one_yr_old</span><span class="p">,</span> <span class="s1">'a year old'</span> <span class="p">){</span> <span class="n">subject</span><span class="o">.</span><span class="n">created_at</span> <span class="o">=</span> <span class="mi">1</span><span class="o">.</span><span class="n">years</span><span class="o">.</span><span class="n">ago</span> <span class="p">}</span> <span class="c1"># With optional description</span>
 
-    <span class="n">describe_situation</span> <span class="ss">:stolen</span><span class="p">,</span> <span class="ss">:red</span> <span class="k">do</span>
+    <span class="n">describe_situation</span> <span class="ss">:bought</span><span class="p">,</span> <span class="ss">:red</span> <span class="k">do</span>
         <span class="n">it</span><span class="p">{</span> <span class="n">should</span> <span class="n">be_tasty</span> <span class="p">}</span>
     <span class="k">end</span>
 
-    <span class="n">describe_situation</span> <span class="ss">:stolen</span><span class="p">,</span> <span class="p">:</span><span class="mi">1</span><span class="n">yr_old</span> <span class="k">do</span>
+    <span class="n">describe_situation</span> <span class="ss">:bought</span><span class="p">,</span> <span class="ss">:one_yr_old</span><span class="p">,</span> <span class="s1">'bought a year ago'</span> <span class="k">do</span> <span class="c1"># With optional description</span>
         <span class="n">it</span><span class="p">{</span> <span class="n">should_not</span> <span class="n">be_tasty</span> <span class="p">}</span>
+    <span class="k">end</span>
+
+    <span class="n">describe_situation</span> <span class="ss">:bought</span><span class="p">,</span> <span class="ss">:one_yr_old</span> <span class="k">do</span>
+      <span class="n">it</span><span class="p">{</span> <span class="n">should_not</span> <span class="n">be_tasty</span> <span class="p">}</span>
     <span class="k">end</span>
 <span class="k">end</span>
 </pre></div>
       </section>
+    </div>
 
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/brett-richardson">brett-richardson</a> can be found on <a href="https://github.com/brett-richardson/rspec-situations">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Rspec-situations maintained by <a href="https://github.com/brett-richardson">brett-richardson</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
-
     </div>
 
               <script type="text/javascript">
@@ -99,6 +97,7 @@ Add a symbol key to identify the situation, and add an optional description if y
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
+
 
   </body>
 </html>
