@@ -6,6 +6,20 @@ Using Rspec Situations
 Using Rspec Situations is super simple.
 
 
+In your Gemfile:
+```ruby
+group :development, :testing do
+    gem 'rspec-situations'
+end
+```
+
+
+In your spec_helper.rb:
+```ruby
+require 'rspec/situations'
+```
+
+
 Define a situation with the 'situation' method.
 Add a symbol key to identify the situation, and add an optional description if you like, and pass in a block creating the situation.
 
