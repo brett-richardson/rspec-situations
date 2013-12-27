@@ -55,14 +55,14 @@
 
 <p>In your Gemfile:</p>
 
-<div class="highlight"><pre><span class="n">group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:testing</span> <span class="k">do</span>
+<div class="highlight highlight-ruby"><pre><span class="n">group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:testing</span> <span class="k">do</span>
     <span class="n">gem</span> <span class="s1">'rspec-situations'</span>
 <span class="k">end</span>
 </pre></div>
 
 <p>In your spec_helper.rb:</p>
 
-<div class="highlight"><pre><span class="nb">require</span> <span class="s1">'rspec/situations'</span>
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s1">'rspec/situations'</span>
 </pre></div>
 
 <p>Define a situation with the 'situation' method.
@@ -70,7 +70,7 @@ Add a symbol key to identify the situation, and add an optional description if y
 
 <p>Describe a set of 1 or more situations with the 'describe_situation' method, and treat it just like a normal describe call.</p>
 
-<div class="highlight"><pre><span class="n">describe</span> <span class="no">Apple</span> <span class="k">do</span>
+<div class="highlight highlight-ruby"><pre><span class="n">describe</span> <span class="no">Apple</span> <span class="k">do</span>
     <span class="n">subject</span><span class="p">(</span> <span class="ss">:apple</span> <span class="p">){</span> <span class="n">create</span> <span class="ss">:apple</span> <span class="p">}</span>
 
     <span class="n">situation</span><span class="p">(</span> <span class="ss">:bought</span> <span class="p">){</span> <span class="n">subject</span><span class="o">.</span><span class="n">bought_by</span> <span class="o">=</span> <span class="n">create</span> <span class="ss">:user</span> <span class="p">}</span>
@@ -118,7 +118,7 @@ Add a symbol key to identify the situation, and add an optional description if y
           </script>
           <script type="text/javascript">
             try {
-              var pageTracker = _gat._getTracker("UA-11951590-1");
+              var pageTracker = _gat._getTracker("UA-11951590-6");
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
